@@ -7,4 +7,34 @@
 <li>Friendly User-Interface without huge commands and syntax</li>
 <li>Efficient Code with Multiple options with clean visualization.</li>
 </ul>
+<h4>Features Z provides</h4>
+
+<ul>
+<li>MLP Models-> Preprocessing, Training, Inference and Evaluation.</li>
+<li>RNNs and LSTMs Models for Time Series-> Preprocessing, Training, Inference and Evaluation.(Beta)</li>
+<li>CNNs for Image Processing-> Preprocessing, Training, Inference and Evaluation.(Beta)</li>
+<li>GANs for Generative models.</li>
+</ul>
+<h4>Activation functions implemented</h4>
+
+<ul>
+<li>ReLU</li>
+<li>Leaky ReLU</li>
+<li>Sigmoid</li>
+<li>Softmax</li>
+<li>Tanh</li>
+</ul>
+
+<h4>Loss Evaluation Functions</h4>
+<ul>
+<li>Cross Entropy Loss</li>
+<li>Mean Sqaure Error</li>
+</ul>
+
+<h3>Goals for the future update versions..<h3>
+<ul>
+<li>More Models are to be implemented like CNNs, RNNs, LSTMs, GANs, HyperGANs etc</li>
+<li>More Loss Functions for effiecient evaluation</li>
+<li>GPU Support implementation based on Tensorflow.</li>
+<li>Visualizing Tools for on the verification.</li>
 <h6>Read the full documentaion <a href="http://abhishekyanamandra.ml/z/Z_documentation.html">Here(BETA).</a></h4>
