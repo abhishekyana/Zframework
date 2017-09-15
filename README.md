@@ -31,7 +31,7 @@
 <li>Mean Sqaure Error</li>
 </ul>
 
-<h3>Goals for the future update versions..<h3>
+<h3>Goals for the future update versions..</h3>
 <ul>
 <li>More Models are to be implemented like CNNs, RNNs, LSTMs, GANs, HyperGANs etc</li>
 <li>More Loss Functions for effiecient evaluation</li>
