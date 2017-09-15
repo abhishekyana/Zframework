@@ -1,7 +1,8 @@
 import numpy as np
 
-def one_hot(S1,mode_word=False):
+def one_hot(S1,word_mode=False):
     """
+
     This one_hot model is used to one_hot encode the data:
     input: S1:Sting or Integer to be one_hot encoded, mode_word: for word or letter mode.
     returns list of [un,oh] -> un: header file for unique values, oh: one_hot array(2D)
@@ -21,7 +22,7 @@ def one_hot(S1,mode_word=False):
         S=list(map(int,str(S1)))
     if type(S1)==str:
         S=list(S1)
-        if mode_word==True:
+        if word_mode==True:
             S=S1.split(' ')
     a=np.array(S)
     a=a.reshape(a.size,1)
