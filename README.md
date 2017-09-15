@@ -7,4 +7,4 @@
 <li>Friendly User-Interface without huge commands and syntax</li>
 <li>Efficient Code with Multiple options with clean visualization.</li>
 </ul>
-<h6>Read the full documentaion <a href="http://abhishekyanamandra.ml">Here(BETA).</a></h4>
+<h6>Read the full documentaion <a href="http://abhishekyanamandra.ml/z/Z_documentation.html">Here(BETA).</a></h4>
