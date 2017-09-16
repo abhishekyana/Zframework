@@ -17,7 +17,20 @@ def activate_prime(type,a):
         return a>=0
     if type=='sigmoid':
         return a*(1-a)
+
+-(np.multiply(self.Y,np.log(self.A_out))+np.multiply((1-self.Y),np.log(1-self.A_out)))
 """
+def loss(type,Y,A_out):
+    if type=='logistic':
+        return -(np.multiply(Y,np.log(A_out))+np.multiply((1-Y),np.log(1-A_out)))
+    if type=='mean_square_error':
+        return np.square(A_out-Y)
+
+def loss_prime(type,Y,A_out):
+    if type=='logistic':
+        return -(np.divide(Y,A_out)-np.divide((1-Y),(1-A_out)))
+    if type=='mean_square_error':
+        return A_out-Y
 
 def load_data(filename,train=False, test=False):
     """
@@ -37,9 +50,10 @@ def load_data(filename,train=False, test=False):
 
 class model():
 
-    def __init__(self,Xtrain,Ytrain,layerdims,activations=[None]):
+    def __init__(self,Xtrain,Ytrain,layerdims,activations=[None],loss_type='logistic'):
         self.Xtrain=Xtrain
         self.Ytrain=Ytrain
+        self.loss_type=loss_type
         self.n_x=Xtrain.shape[0]
         self.n_y=Ytrain.shape[0]
         layerdims=list(layerdims)
@@ -85,13 +99,14 @@ class model():
         self.cache={"Z":self.Z,"A":self.A}
         #return A_out,cache
 
+
     def make_batch(self,test=False):
         vals=np.random.choice(self.Xtrain.shape[1],self.batch_size)
-        self.X,self.Y=self.Xtrain[:,vals]/255,self.Ytrain[:,vals]
+        self.X,self.Y=self.Xtrain[:,vals],self.Ytrain[:,vals]
         self.m=self.X.shape[1]
         if test==True:
             vals=np.random.choice(self.Xtest.shape[1],self.batch_size)
-            self.X,self.Y=self.Xtest[:,vals]/255,self.Ytest[:,vals]
+            self.X,self.Y=self.Xtest[:,vals],self.Ytest[:,vals]
             self.m=self.X.shape[1]
 
 
@@ -102,7 +117,7 @@ class model():
         inputs: A_out, Y, loss_type {'logistic'}
         outputs: unnormalized cost. should be divided with the total examples
         """
-        logs=-(np.multiply(self.Y,np.log(self.A_out))+np.multiply((1-self.Y),np.log(1-self.A_out)))
+        logs=loss(self.loss_type,self.Y,self.A_out)
         cost=np.sum(logs)/self.m
         self.cost=np.squeeze(cost)
 
@@ -116,7 +131,7 @@ class model():
         dA=[None]*len(self.A)
         dW=[None]*len(self.W) #self.grads["dW"]
         db=[None]*len(self.b) #self.grads["db"]
-        dA[-1]=-(np.divide(self.Y,self.A_out)-np.divide((1-self.Y),(1-self.A_out))) #for logistic loss
+        dA[-1]=loss_prime(self.loss_type,self.Y,self.A_out) #for logistic loss
         for layer in range((len(self.Z)-1),0,-1):
             dZ[layer]=np.multiply(dA[layer],activate_prime(self.activations[layer],self.A[layer]))
             dW[layer]=np.dot(dZ[layer],self.A[layer-1].T)/self.m; db[layer]=np.sum(dZ[layer],axis=1,keepdims=True)/self.m
