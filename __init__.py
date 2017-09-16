@@ -3,23 +3,6 @@ import matplotlib.pyplot as plt
 import pickle as p
 from .activations import *
 
-""" remove after checking the performance
-def activate(type,z):
-
-    if type=='relu':
-        return np.maximum(0,z)
-    if type=='sigmoid':
-        return 1/(1+np.exp(-z))
-
-def activate_prime(type,a):
-
-    if type=='relu':
-        return a>=0
-    if type=='sigmoid':
-        return a*(1-a)
-
--(np.multiply(self.Y,np.log(self.A_out))+np.multiply((1-self.Y),np.log(1-self.A_out)))
-"""
 def loss(type,Y,A_out):
     if type=='logistic':
         return -(np.multiply(Y,np.log(A_out))+np.multiply((1-Y),np.log(1-A_out)))
