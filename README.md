@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<h1>Z Framework</h1><sup>Ver 0.2</sup>
-<h2>Features</h2>
-=======
 <h1>Z Framework</h1><h6>Ver 0.2</h6>
 <h2>Z for Easy Deep Learning and Machine Learning</h2>
 <p>  Z is an Easy Open-Source tool designed to run on top of Numpy(CPU) and Tensorflow(GPU-in Beta).</br>It is capable of performing the Deep Learning training with minimal DL knowledge.</br>Just follow the basic data preprocessing tips and train your own Neural Network from scratch.</p>
