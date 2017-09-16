@@ -8,7 +8,6 @@
 <li>Efficient Code with Multiple options with clean visualization.</li>
 </ul>
 <h4>Features Z provides</h4>
->>>>>>> a4a800edc7233ee72720d81724fb31dc29b4db23
 
 <ul>
 <li>MLP Models-> Preprocessing, Training, Inference and Evaluation.</li>
